@@ -36,15 +36,27 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-end
-
-group :development do
+  gem 'capybara'
+  gem 'launchy'
+  gem 'rspec-rails'
+  gem 'jasmine-rails'
+  gem 'cucumber-rails' 
+  gem 'cucumber-rails-training-wheels'
+  gem 'simplecov', :require => false
+  gem 'database_cleaner' # required by Cucumber
+  gem 'autotest-rails'
+  gem 'factory_girl_rails' # if using FactoryGirl
+  gem 'metric_fu'        # collect code metrics
+  
+    # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
 end
+
+
 
 group :production do
   # make sure the following gems are in your production group:
@@ -52,3 +64,4 @@ group :production do
   gem 'rails_12factor'  # Heroku-specific production settings
 end
 
+gem 'haml'
