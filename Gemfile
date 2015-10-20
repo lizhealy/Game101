@@ -40,14 +40,15 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'jasmine-rails'
-  gem 'cucumber-rails' 
+  gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
   gem 'simplecov', :require => false
   gem 'database_cleaner' # required by Cucumber
   gem 'autotest-rails'
   gem 'factory_girl_rails' # if using FactoryGirl
   gem 'metric_fu'        # collect code metrics
-  
+  gem 'hirb'
+  gem 'table_print'
     # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   

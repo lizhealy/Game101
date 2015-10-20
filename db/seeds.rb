@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+questions = [{:category => 'Aladdin', :description => 'G', :image => 'link'},
+    	  {:category => 'The Terminator', :description => 'R', :image => 'link'},
+    	  {:category => 'When Harry Met Sally', :description => 'R', :image => 'link'},
+  	 ]
+
+questions.each do |question|
+  Question.create!(question)
+end
