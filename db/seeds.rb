@@ -14,3 +14,13 @@ questions = [{:category => 'Aladdin', :description => 'G', :image => 'link'},
 questions.each do |question|
   Question.create!(question)
 end
+
+
+categories = [{:title => 'shapes', :description => 'Try to identity the shape'},
+    	  {:title => 'colors', :description => 'Try to identity the color'},
+    	  {:title => 'animals', :description => 'Try to identity the pictured animal'},
+  	 ]
+
+categories.each do |category|
+  Category.create!(category)
+end
