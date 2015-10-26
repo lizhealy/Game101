@@ -187,6 +187,8 @@ GEM
     pg (0.18.3)
     phantomjs (1.9.8.0)
     procto (0.0.2)
+    protected_attributes (1.1.3)
+      activemodel (>= 4.0.1, < 5.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -337,6 +339,7 @@ DEPENDENCIES
   launchy
   metric_fu
   pg
+  protected_attributes
   rails (= 4.2.4)
   rails_12factor
   rspec-rails

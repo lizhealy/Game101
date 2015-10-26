@@ -1,9 +1,20 @@
-Rails.application.routes.draw do
+# Rails.application.routes.draw do
+  
+  
+Game101::Application.routes.draw do
+  resources :questions
+  # map '/' to be a redirect to '/movies'
+  root :to => redirect('/categories')
+end
+
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :questions
-  post'/questions/category'
+# I commented these two lines out
+  # resources :questions
+  # post'/questions/category'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
@@ -56,4 +67,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+# end

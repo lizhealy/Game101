@@ -6,21 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-questions = [{:category => 'Aladdin', :description => 'G', :image => 'link'},
-    	  {:category => 'The Terminator', :description => 'R', :image => 'link'},
-    	  {:category => 'When Harry Met Sally', :description => 'R', :image => 'link'},
+questions = [{:category => 'colors', :image => 'link', :prompt=> "What color is this?"},
+    	  {:category => 'shapes', :image => 'link', :prompt=> "What shape is this?"},
+    	  {:category => 'animals', :image => 'link', :prompt=> "What animal is this?"},
   	 ]
 
 questions.each do |question|
   Question.create!(question)
-end
-
-
-categories = [{:title => 'shapes', :description => 'Try to identity the shape'},
-    	  {:title => 'colors', :description => 'Try to identity the color'},
-    	  {:title => 'animals', :description => 'Try to identity the pictured animal'},
-  	 ]
-
-categories.each do |category|
-  Category.create!(category)
 end
