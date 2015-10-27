@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.string 'category'
       t.string 'prompt'
       t.string 'image'
+      t.string 'answer'
       # Add fields that let Rails automatically keep track
       # of when movies are added or modified:
       t.timestamps

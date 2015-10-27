@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20151026233446) do
     t.string   "category"
     t.string   "prompt"
     t.string   "image"
+    t.string   "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
