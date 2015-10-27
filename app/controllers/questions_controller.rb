@@ -1,9 +1,17 @@
 class QuestionsController < ApplicationController
     
-    def index
+    
+    # def show
+    #     id = params[:category] # retrieve movie ID from URI route
+    #     @question = Question.find(id) # look up movie by unique ID
+    #     # will render app/views/movies/show.<extension> by default
+    # end
+
+    
+    def show
         category_choice = params[:category]
         # @questions = Question.all
-        redirect_to questions_path
+        redirect_to questions_path(category_choice)
     end
     
     def get_all_categories
