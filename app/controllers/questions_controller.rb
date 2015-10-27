@@ -2,8 +2,8 @@ class QuestionsController < ApplicationController
     
     def index
         category_choice = params[:category]
-        @questions = Question.all
-    
+        # @questions = Question.all
+        redirect_to questions_path
     end
     
     def get_all_categories
