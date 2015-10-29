@@ -1,5 +1,7 @@
 - @all_categories.each do |category|
-    %th= link_to "#{category}", new_question_path(:category => category), :id => "selected_#{category}" 
+    %th= link_to "#{category}", question_path(:category =>category, :id =>category), :id => "selected_#{category}" 
+    
+
    
    
    

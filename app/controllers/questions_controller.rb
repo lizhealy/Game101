@@ -6,42 +6,39 @@ class QuestionsController < ApplicationController
     # end
 
     def show
-        category_choice = params[:category]
-        @questions = Question.all
-        redirect_to questions_path(category_choice)
-
+        # category_choice = params[:category]
+        # @questions = Question.all
+        # redirect_to questions_path(category_choice)
+        if(!params[:category].nil?)
+            @question = get_random_question
+            @answer = @question.answer
+            
+            optionsArray = Question.where(category: params[:category])
+            optionsArray.uniq.pluck(:answer)
+            
+            @option1 = optionsArray[rand(optionsArray.length)].answer
+            @option2 = optionsArray[rand(optionsArray.length)].answer
+            
+            while @option1 == @answer
+                @option1 = optionsArray[rand(optionsArray.length)].answer
+            end
+         
+            while(@option1 == @option2 || @option2 == @answer)
+              @option2 = optionsArray[rand(optionsArray.length)].answer
+            end
+        end
     end
     
-  def index
-    @all_categories = Question.uniq.pluck(:category)
-    category_choice = params[:category]
-        @questions = Question.where(category: category_choice)
-  end
+    def index
+        @all_categories = get_all_categories
+    end
     
     def get_all_categories
         @all_categories = Question.uniq.pluck(:category)
     end
     
     def new
-       
-         element = get_random_question
-         @answer = element.answer
-         
-         optionArray = Question.where(category: element.category)
-         optionArray.uniq.pluck(:answer)
-         
-         optionArray.delete(@answer)
-         
-         @option1 = optionArray[rand(optionArray.length)].answer
-        while @option1 == nil
-            @option1 = optionArray[rand(optionArray.length)].answer
-        end
-        
-        @option2 = optionArray[rand(optionArray.length)].answer
-         
-        while(@option1 == @option2 || @option2 == nil)
-              @option2 = optionArray[rand(optionArray.length)].answer
-        end
+
     end
     
     def get_random_question 
@@ -50,7 +47,5 @@ class QuestionsController < ApplicationController
         @random_question = random_questions[rand(random_questions.length)]
     end
     
-    def dummy_answers
-        @all_answer_options = Question.uniq.pluck(:answer)
-    end
+    
 end
