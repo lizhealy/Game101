@@ -1,7 +1,16 @@
-%h1- #{@question.prompt}
 
-%h1- "#{@answer}"
-%h1- "#{@option1}"
-%h1- "#{@option2}"
+%h1- #{@question.prompt}
+= form_tag question_path, :method => :get do 
+
+  Choices: 
+  %h1
+  
+  - @answerChoices.each do |shuffle|
+    = radio_button_tag "#{shuffle}", :id => "selected_#{shuffle}"
+    =label_tag("#{shuffle}")
+    
+= submit_tag 'Submit', :id => 'submit_answer'
+    
+
 
 

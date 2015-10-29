@@ -26,6 +26,12 @@ class QuestionsController < ApplicationController
             while(@option1 == @option2 || @option2 == @answer)
               @option2 = optionsArray[rand(optionsArray.length)].answer
             end
+            
+            @answerChoices = Array.new
+            @answerChoices.push(@answer)
+            @answerChoices.push(@option1)
+            @answerChoices.push(@option2)
+            @answerChoices.shuffle
         end
     end
     
