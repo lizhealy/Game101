@@ -33,7 +33,15 @@ class QuestionsController < ApplicationController
             @answerChoices.push(@option2)
             @answerChoices.shuffle
         end
+        
+        if(params[:answer] == @answer)
+             flash[:notice] = "Correct"
+        else
+            flash[:notice] = "Incorrect"
+        end
+        
     end
+    
     
     def index
         @all_categories = get_all_categories
@@ -43,7 +51,12 @@ class QuestionsController < ApplicationController
         @all_categories = Question.uniq.pluck(:category)
     end
     
-    def new
+    def edit
+        if(params[:answer] == @answer)
+            flash[:notice] = "Correct"
+        else
+            flash[:notice] = "Incorrect"
+        end
 
     end
     
@@ -51,6 +64,14 @@ class QuestionsController < ApplicationController
         category_choice = params[:category]
         random_questions = Question.where(category: category_choice)
         @random_question = random_questions[rand(random_questions.length)]
+    end
+    
+    def check_answer
+        if(params[:answer] == @answer)
+            flash[:notice] = "Correct"
+        else
+            flash[:notice] = "Incorrect"
+        end
     end
     
     

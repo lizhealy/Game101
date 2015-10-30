@@ -1,16 +1,19 @@
-
 %h1- #{@question.prompt}
-= form_tag question_path, :method => :get do 
+%h1
+// Choices: 
+// %h1
 
-  Choices: 
-  %h1
-  
+// - @answerChoices.each do |shuffle|
+//   = radio_button_tag :answer,"#{shuffle}", params[:answer] == "#{shuffle}"
+//   #{shuffle}
+// = submit_tag "Submit", edit_question_path()
+
+Choices: 
+%h1
   - @answerChoices.each do |shuffle|
-    = radio_button_tag "#{shuffle}", :id => "selected_#{shuffle}"
-    =label_tag("#{shuffle}")
+    =radio_button_tag(:answer, "#{shuffle}", params[:answer] == "#{shuffle}") 
+    "#{shuffle}"
+
+
+= button_to 'Submit', question_path(:answer)
     
-= submit_tag 'Submit', :id => 'submit_answer'
-    
-
-
-
