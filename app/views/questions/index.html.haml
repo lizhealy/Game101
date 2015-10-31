@@ -1,8 +1,6 @@
+-#  This file is app/views/questions/index.html.haml
+%h2 All Categories
 - @all_categories.each do |category|
-    %th= link_to "#{category}", question_path(:category =>category, :id =>category), :id => "selected_#{category}" 
-    
+    = link_to "Questions on #{category}", questions_id_path(:category =>category, :id =>category)
 
-   
-   
-   
-  
+      

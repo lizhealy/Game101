@@ -1,19 +1,8 @@
-%h1- #{@question.prompt}
-%h1
-// Choices: 
-// %h1
-
-// - @answerChoices.each do |shuffle|
-//   = radio_button_tag :answer,"#{shuffle}", params[:answer] == "#{shuffle}"
-//   #{shuffle}
-// = submit_tag "Submit", edit_question_path()
-
+%h2- #{@question.prompt}
 Choices: 
-%h1
-  - @answerChoices.each do |shuffle|
+- @answerChoices.each do |shuffle|
     =radio_button_tag(:answer, "#{shuffle}", params[:answer] == "#{shuffle}") 
-    "#{shuffle}"
+    #{shuffle}
 
+= button_to 'Submit', question_path()
 
-= button_to 'Submit', question_path(:answer)
-    

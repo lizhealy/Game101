@@ -2,44 +2,38 @@ class QuestionsController < ApplicationController
     # def show
     #     id = params[:category] # retrieve movie ID from URI route
     #     @question = Question.find(id) # look up movie by unique ID
-    #     # will render app/views/movies/show.<extension> by default
+    #     # will render app/viewsmovies/show.<extension> by default
     # end
 
     def show
         # category_choice = params[:category]
         # @questions = Question.all
         # redirect_to questions_path(category_choice)
-        if(!params[:category].nil?)
-            @question = get_random_question
-            @answer = @question.answer
-            
-            optionsArray = Question.where(category: params[:category])
-            optionsArray.uniq.pluck(:answer)
-            
-            @option1 = optionsArray[rand(optionsArray.length)].answer
-            @option2 = optionsArray[rand(optionsArray.length)].answer
-            
-            while @option1 == @answer
-                @option1 = optionsArray[rand(optionsArray.length)].answer
-            end
-         
-            while(@option1 == @option2 || @option2 == @answer)
-              @option2 = optionsArray[rand(optionsArray.length)].answer
-            end
-            
-            @answerChoices = Array.new
-            @answerChoices.push(@answer)
-            @answerChoices.push(@option1)
-            @answerChoices.push(@option2)
-            @answerChoices.shuffle
-        end
+        @selected_category = params[:category] 
+        @all_questions = Question.where(category: @selected_category)
         
-        if(params[:answer] == @answer)
-             flash[:notice] = "Correct"
-        else
-            flash[:notice] = "Incorrect"
-        end
+        @question = @all_questions.sample
+        @answer = @question.answer
         
+        optionsArray = @all_questions.uniq.pluck(:answer)
+
+        @option1 = optionsArray.sample
+        @option2 = optionsArray.sample
+
+        while @option1 == @answer
+            @option1 = optionsArray.sample
+        end
+
+        while(@option1 == @option2 || @option2 == @answer)
+            @option2 = optionsArray.sample
+        end
+
+        @answerChoices = Array.new
+        @answerChoices.push(@answer)
+        @answerChoices.push(@option1)
+        @answerChoices.push(@option2)
+        @answerChoices.shuffle
+  
     end
     
     
@@ -58,12 +52,6 @@ class QuestionsController < ApplicationController
             flash[:notice] = "Incorrect"
         end
 
-    end
-    
-    def get_random_question 
-        category_choice = params[:category]
-        random_questions = Question.where(category: category_choice)
-        @random_question = random_questions[rand(random_questions.length)]
     end
     
     def check_answer
