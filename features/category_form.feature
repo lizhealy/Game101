@@ -22,8 +22,6 @@ Scenario: Select a category
     When I am on the categories page
     # Then I print
     Then I should see "All Categories"
-    Then I print
     When I click "Questions on Shapes"
-    # Then I print
-    # Then I should be asked a question
-#     And I should see three answer choices
+    Then I should be asked a question
+    # And I should see three answer choices

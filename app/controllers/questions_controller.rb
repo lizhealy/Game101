@@ -13,7 +13,12 @@ class QuestionsController < ApplicationController
         @all_questions = Question.where(category: @selected_category)
         
         @question = @all_questions.sample
+        if(@question.nil?)
+            @answer = 'blue'
+        else
         @answer = @question.answer
+        end
+     
         
         optionsArray = @all_questions.uniq.pluck(:answer)
 
