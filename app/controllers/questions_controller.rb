@@ -42,8 +42,16 @@ class QuestionsController < ApplicationController
     end
     
     
+    def categories
+        @all_categories = get_all_categories
+  
+        
+    end
+    
     def index
         @all_categories = get_all_categories
+
+
     end
     
     def get_all_categories

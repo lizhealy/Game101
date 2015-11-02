@@ -19,6 +19,6 @@
   
 # Scenario: Select a wrong shape
 #  When I check the wrong shape
- # Then Checkbox should be checked
-  #When I click "Submit"
-  #Then I should see incorrect feedback
+#  Then Checkbox should be checked
+#   When I click "Submit"
+#   Then I should see incorrect feedback

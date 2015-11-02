@@ -4,9 +4,10 @@
 Game101::Application.routes.draw do
   resources :questions
   # map '/' to be a redirect to '/movies'
-  get 'questions/id' => 'questions#show'
-  # get 'questions/id' => 'questions#check_answer'
-  root :to => redirect('/questions')
+   get '/questions/id' => 'questions#show'
+  get 'questions/id/categories' => 'questions#categories'
+#mv  get '/questions' => 'questions#categories'
+#mv  root :to => redirect('/questions/index')
 end
 
   

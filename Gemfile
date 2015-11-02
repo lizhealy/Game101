@@ -43,8 +43,8 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'jasmine-rails'
-  gem 'cucumber-rails', :require => false
-  gem 'cucumber-rails-training-wheels'
+#  gem 'cucumber-rails' #, :require => false
+#  gem 'cucumber-rails-training-wheels'
   gem 'simplecov', :require => false
   gem 'database_cleaner' # required by Cucumber
   gem 'autotest-rails'
@@ -60,7 +60,10 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
 end
-
+group :test do
+  gem 'cucumber-rails' 
+  gem 'cucumber-rails-training-wheels'
+end
 
 
 group :production do

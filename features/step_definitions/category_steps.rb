@@ -16,6 +16,14 @@ When (/^I click "([^"]*)"$/) do |element|
   %{I click (element)}  
 end
 
+# When /^I click on link (.*)$/ do |link|
+#   click_link('Questions on Shapes')
+# end
+
+# When /I click on link Questions on Shapes/ do
+#   click_link('Question on Shapes')  
+# end
+
 Then /^I pause for a while$/ do 
     sleep 3
 end
@@ -31,9 +39,9 @@ end
 
 Then(/^I should be asked a question/) do 
   # @question = Question.all
-   visit "/questions/"
-   all_categories = Question.all
-  click_link "Questions on Shapes"
+#   visit "/questions/"
+#   all_categories = Question.all
+#   click_link "Questions on Shapes"
   expect(page).to have_content("What")
 
   
@@ -45,4 +53,6 @@ end
 
 
 
-
+And (/I should see a link "([^"]*)"$/) do |link|
+  expect(page).to have_link(link)
+end

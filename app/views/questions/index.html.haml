@@ -1,10 +1,16 @@
--#  This file is app/views/questions/index.html.haml
-%h2 All Categories
-// - @all_categories.each do |category|
-//     = link_to "Questions on #{category}", questions_id_path(:category =>category, :id =>category)
-= link_to "Questions on Shapes", questions_id_path(:category => 'Shapes', :id => 'selected_shapes')
-= link_to "Questions on Colors", questions_id_path(:category => 'Colors', :id => 'selected_colors')
-= link_to "Questions on Animals", questions_id_path(:category => 'Animals', :id => 'selected_animals')
+// // -#  This file is app/views/questions/index.html.haml
+// %h2 All Categories
+// // - @all_categories.each do |category|
+// //     = link_to "Questions on #{category}", questions_id_path(:category =>category, :id =>category)
+// = link_to "Questions on Shapes", questions_id_path(:category => 'Shapes', :id => 'selected_shapes')
+// = link_to "Questions on Colors", questions_id_path(:category => 'Colors', :id => 'selected_colors')
+// = link_to "Questions on Animals", questions_id_path(:category => 'Animals', :id => 'selected_animals')
 
 
-    
+#content
+  %h1
+  %b Welcome to our Site
+  %h1
+  %p This game will help children practice their shapes, colors, and animals. 
+
+=link_to "View all categories", questions_id_categories_path()
