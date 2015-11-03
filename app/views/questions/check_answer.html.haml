@@ -1,13 +1,13 @@
-%h1 
 Choices:
 - session[:all_answers].each do |shuffle|
-  "#{shuffle}"
+  #{shuffle}
 
 %br
-You chose: "#{params[:answer]}"
+%br
+You chose: #{params[:answer]}
 
 %br
-The correct answer was: "#{session[:answer]}"
+The correct answer was: #{session[:answer]}
 
 %p.flash= flash[:notice]
 
