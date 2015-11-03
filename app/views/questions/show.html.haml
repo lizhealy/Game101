@@ -1,8 +1,11 @@
+%h1- "#{@answer}"
 %h2- #{@question.prompt}
-Choices: 
-- @answerChoices.each do |shuffle|
-    =radio_button_tag(:answer, "#{shuffle}", params[:answer] == "#{shuffle}") 
-    #{shuffle}
+%p.flash= flash[:notice]
 
-= button_to 'Submit', question_path()
-
+%h1 
+Choices:
+= form_tag questions_answer_id_path, :method => 'post', :id => 'answer_form' do
+ - @answerChoices.each do |shuffle|
+  = radio_button_tag(:answer, "#{shuffle}", :answer => "#{shuffle}") 
+  "#{shuffle}"
+ = submit_tag 'Submit', :id => 'answer_submit'

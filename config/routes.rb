@@ -6,6 +6,7 @@ Game101::Application.routes.draw do
   # map '/' to be a redirect to '/movies'
    get '/questions/id' => 'questions#show'
    get 'questions/id/categories' => 'questions#categories'
+   post 'questions/answer/id' => 'questions#check_answer'
 #mv  get '/questions' => 'questions#categories'
   root :to => redirect('/questions/index')
 end
