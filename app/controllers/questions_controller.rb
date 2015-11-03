@@ -45,7 +45,6 @@ class QuestionsController < ApplicationController
         else
             flash[:notice] = "Incorrect"
         end
-        # redirect_to :back
     end
     
     

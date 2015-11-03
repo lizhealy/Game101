@@ -1,3 +1,14 @@
+%h1 
+Choices:
+- session[:all_answers].each do |shuffle|
+  "#{shuffle}"
+
+%br
+You chose: "#{params[:answer]}"
+
+%br
+The correct answer was: "#{session[:answer]}"
+
 %p.flash= flash[:notice]
-%h1-"#{params[:answer]}"
-%h1- "#{session[:answer]}"
+
+= button_to 'Continue', questions_id_path(:category => session[:category], :id=> 'selected_#{category}')
