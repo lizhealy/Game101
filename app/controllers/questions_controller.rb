@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+     attr_accessor :all_categories
+    
     def show
         session[:category] = params[:category]
         @all_questions = Question.where(category: session[:category])
@@ -36,6 +38,7 @@ class QuestionsController < ApplicationController
     
     def get_all_categories
         @all_categories = Question.uniq.pluck(:category)
+        return @all_categories
     end
 
     
