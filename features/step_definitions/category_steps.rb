@@ -16,6 +16,10 @@ When (/^I click "([^"]*)"$/) do |element|
   %{I click (element)}  
 end
 
+When (/^I select an answer/) do
+  choose('answer_square')  
+end
+
 Then /I print/ do
     print page.html
 end

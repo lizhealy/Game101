@@ -53,7 +53,13 @@ When /^(?:|I )follow "([^"]*)"$/ do |link|
   click_link(link)
 end
 
+<<<<<<< HEAD
 
+=======
+# When /^(?:|I )press "([^"]*)"$/ do |button|
+#   click_button(button)
+# end
+>>>>>>> upstrem/master
 
 When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
