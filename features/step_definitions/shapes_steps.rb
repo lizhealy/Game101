@@ -20,13 +20,13 @@ end
 
 
 Then /I should see feedback/ do 
-  page.should have_content("Correct" || "Incorrect")
+  if (page.has_content?("Correct"))
+    expect(page).to have_content("Correct")
+  else
+    expect(page).to have_content("Incorrect")
+  end
 end
 
-When /I press "Submit"/ do |submit_answer|
+When /I press "([^"]*)"$/ do |submit_answer|
   click_button(submit_answer)
 end
-
-
-
-

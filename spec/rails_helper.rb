@@ -50,3 +50,10 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+def response 
+    page.driver.browser.last_response
+end
+
+RSpec.configure do |config|
+  config.infer_spec_type_from_file_location!
+end

@@ -16,6 +16,7 @@ module NavigationHelpers
     when /^the (Game 101)?home\s?page$/ then '/questions/index'
     when /^the Game 101 homepage$/ then '/questions'
     when /^the categories page$/ then '/questions/id/categories'
+    when /^the feedback page$/ then 'questions/answer/id'
     
     when /^the questions on shapes page$/ then '/questions/id?category=Shapes&id=selected_shapes'
     # Add more mappings here.

@@ -40,6 +40,7 @@ group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'launchy'
   gem 'rspec-rails'
   gem 'jasmine-rails'
@@ -61,7 +62,7 @@ group :development, :test do
 
 end
 group :test do
-  gem 'cucumber-rails' 
+  gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'
 end
 
